@@ -95,3 +95,47 @@ Uma biblioteca de números complexos com precisão arbitrária que eu criei há 
 | ONE | 1 |
 | MINUS_ONE | -1 |
 | ZERO | 0 |
+
+## Co.parser
+Aceita:
+` 
+/*
+  Número: (-1, 3, -7812, 1.94, "34", "8230134", "-98143", ...)
+  Imaginário puro: (i, -i, 83i, -3.8324i, ...)
+  Objeto: ({abs, arg}, {real, imag}, {r, phi}, ...)
+  Array: ([3, 3], [-1, 0], ["-1", "-1"], ...)
+  Complexo completo: (1+i, 1-i, 432187+49i, 0.972134+1.1238974i, ...)
+ */
+ `
+#### Exemplos
+| Entrada | Saída |
+|---|---|
+|"1+i" | Co(1, 1) |
+|"113+14i" | Co(113, 14) |
+|1 | Co(1, 0) |
+|[1, 1 | Co(1, 1) |
+|[1, 1] | Co(1, 1) |
+|{real: 1, imag: 2} | Co(1, 2) |
+| (1, 3) | Co(1, 3) |
+|"3i" | Co(0, 3) |
+| 1e-1+1e-1i | Co(1e-1, 1e-1) |
+| "1+2I" | Co(1, 2) |
+| "1r3" | Co.Polar(1, 3) |
+| "1∠3" | Co.Polar(1, 3) |
+| "PI+Ei" | Co(PI, E) |
+| "PIrE" | Co.Polar(PI, E) |
+| Outro Co | Cópia dele |
+
+#### Exemplos de falha
+| Entrada |
+|---|
+|("1+i", 1) |
+|"113i+14" |
+|(1, "i") |
+|() | 
+|[1, 1, 1] | 
+|{a: 1, b: 2} |
+| null | 
+| undefined |
+| 1e-1+1e-1i | 
+| [] | 
