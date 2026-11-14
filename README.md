@@ -79,14 +79,14 @@ Uma biblioteca de números complexos com precisão arbitrária que eu criei há 
 |---|---|
 | PI | π |
 | E | número de Euler |
-| TAU | τ / 2π |
+| TAU | τ ou 2π |
 | SQRT2 | sqrt(2) |
 | SQRT3 | sqrt(3) |
 | SQRT5 | sqrt(5) |
 | LN10 | ln(10) |
 | LN2 | ln(2) |
 | LOG10E | log10(E) |
-| PHI | φ / (1+sqrt(5))/2 |
+| PHI | φ ou (1+sqrt(5))/2 |
 | PI_2 | π/2 |
 | PI_3 | π/3 |
 | PI_4 | π/4 |
