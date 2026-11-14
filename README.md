@@ -100,11 +100,11 @@ Uma biblioteca de números complexos com precisão arbitrária que eu criei há 
 Aceita:
 ` 
 /*
-  Número: (-1, 3, -7812, 1.94, "34", "8230134", "-98143", ...)
-  Imaginário puro: (i, -i, 83i, -3.8324i, ...)
-  Objeto: ({abs, arg}, {real, imag}, {r, phi}, ...)
-  Array: ([3, 3], [-1, 0], ["-1", "-1"], ...)
-  Complexo completo: (1+i, 1-i, 432187+49i, 0.972134+1.1238974i, ...)
+  -Número: (-1, 3, -7812, 1.94, "34", "8230134", "-98143", ...)
+  -Imaginário puro: (i, -i, 83i, -3.8324i, ...)
+  -Objeto: ({abs, arg}, {real, imag}, {r, phi}, ...)
+  -Array: ([3, 3], [-1, 0], ["-1", "-1"], ...)
+  -Complexo completo: (1+i, 1-i, 432187+49i, 0.972134+1.1238974i, ...)
  */
  `
 #### Exemplos
