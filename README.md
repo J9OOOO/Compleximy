@@ -68,8 +68,8 @@ Uma biblioteca de números complexos com precisão arbitrária que eu criei há 
 | (a, b) -> a+bi | Co(a, b) |
 | (r, phi) -> r * e ** (iphi) | Co.Polar(r, phi) |
 | Co -> string | z.toString(tipo) |
-| Co -> Array em Decimal | z.toArrayDecimal |
-| Co -> Array em Number | z.toArrayNumber |
+| Co -> Array em Decimal | z.toArrayDecimal() |
+| Co -> Array em Number | z.toArrayNumber() |
 | Co -> Objeto em Decimal| z.toObjectDecimal(tipo)  |
 | Co -> Objeto em Number| z.toObjectNumber(tipo)  |
 | Co -> JSON| z.toJSON(tipo) |
