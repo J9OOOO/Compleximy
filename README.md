@@ -1,5 +1,9 @@
 # Compleximy
 Uma biblioteca de números complexos com precisão arbitrária que eu criei há 39 dias atrás (na data de hoje 14/11/2026)
+Todos os ramos escolhidos são o principal (k = 0)
+O truncamento é para qualquer número menor que a precisão 'p'
+Ex: para p = 100, 1e-101 é considerado 0
+O construtor do Co aceita Co(1) e Co(1, 0)
 
 ## Instalação:
 `(eu ainda vou botar)`
