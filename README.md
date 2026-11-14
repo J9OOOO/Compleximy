@@ -58,4 +58,40 @@ Uma biblioteca de números complexos com precisão arbitrária que eu criei há 
 | z = 0 | z.isZero() |
 | z é real | z.isReal() |
 | z é imaginário puro | z.isImag() |
+| z é finito | z.isFinite() |
+| z é NaN | z.isNaN() |
+| z / abs(z) | z.norm() |
+| distance(z, w) | z.distance(w) |
+| z(exp(itheta)) | z.rotation(theta) |
+| z === w | z.eq(w) |
+| z !== w | z.noeq(w) |
+| (a, b) -> a+bi | Co(a, b) |
+| (r, phi) -> r * e ** (iphi) | Co.Polar(r, phi) |
+| Co -> string | z.toString(tipo) |
+| Co -> Array em Decimal | z.toArrayDecimal |
+| Co -> Array em Number | z.toArrayNumber |
+| Co -> Objeto em Decimal| z.toObjectDecimal(tipo)  |
+| Co -> Objeto em Number| z.toObjectNumber(tipo)  |
+| Co -> JSON| z.toJSON(tipo) |
 
+### Constantes:
+| Nome | Representação matemática |
+|---|---|
+| PI | π |
+| E | número de Euler |
+| TAU | τ / 2π |
+| SQRT2 | sqrt(2) |
+| SQRT3 | sqrt(3) |
+| SQRT5 | sqrt(5) |
+| LN10 | ln(10) |
+| LN2 | ln(2) |
+| LOG10E | log10(E) |
+| PHI | φ / (1+sqrt(5))/2 |
+| PI_2 | π/2 |
+| PI_3 | π/3 |
+| PI_4 | π/4 |
+| I | sqrt(-1) |
+| MINUS_I | -sqrt(-1) |
+| ONE | 1 |
+| MINUS_ONE | -1 |
+| ZERO | 0 |
