@@ -1,5 +1,5 @@
 const { default: Decimal } = require("decimal.js")
-const {Co} = require("./Untitled-1")
+const {Co} = require("./../Complexity")
 const {Complex} = require("complex.js")
 
 let xCo1 = Co.SQRT2.atan()
