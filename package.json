@@ -1,0 +1,24 @@
+{
+  "name": "compleximy",
+  "version": "1.0.0",
+  "description": "Biblioteca de números complexos com precisão arbitrária via Decimal.js",
+  "main": "Compleximy.js",
+  "files": [
+    "Compleximy.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "complex",
+    "complex-numbers",
+    "decimal",
+    "decimal.js",
+    "arbitrary-precision",
+    "math"
+  ],
+  "author": "J9AOOOO",
+  "license": "MIT",
+  "dependencies": {
+    "decimal.js": "^10.4.0"
+  }
+}
