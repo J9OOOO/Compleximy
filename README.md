@@ -6,7 +6,7 @@ Ex: para p = 100, 1e-101 é considerado 0
 O construtor do Co aceita Co(1) e Co(1, 0)
 
 ## Instalação:
-`(eu ainda vou botar)`
+(eu ainda vou botar)
 
 
 ### Operadores
@@ -141,3 +141,64 @@ Aceita:
 | undefined |
 | 1e-1+1e-1i | 
 | [] | 
+
+
+## Métodos toAlgo
+
+### toString(tipo = "Cartesian")
+
+| Entrada | Saída | tipo |
+|---|---|---|
+| Co(1, 1) | "1 + i" | "c" (Cartesian) |
+| Co(1, 1) | "1.4142135623730... * e ** (0.785398163397...i)" | Euler |
+| Co(1, 1) | "1.4142135623730... ∠ 0.785398163397..." | PolarSy |
+| Co(1, 1) | "1.4142135623730... r 0.785398163397..." | PolarChar |
+
+> "p" é apenas para exibição — **não** é parseável por Co.parser, somente Cartesian, PolarSy e PolarChar
+
+### toArrayDecimal()
+
+| Entrada | Saída | Descrição |
+|---|---|---|
+| Co(new Decimal(2).sqrt(), 1) | [ Decimal(1.414213562373095048801...), Decimal(1) ] | Retorna [real, imag] como Decimal |
+
+### toArrayNumber()
+
+| Entrada | Saída | Descrição |
+|---|---|---|
+| Co(new Decimal(2).sqrt(), 1) | [ 1.4142135623730951, 1 ] | Retorna [real, imag] como Decimal |
+
+### toObjectDecimal(tipo = "Cartesian")
+
+| Entrada | Saída | tipo |
+|---|---|---|
+| Co(new Decimal(2).sqrt(), 1) | { real: Decimal(1.414213562373095048801...), imag: Decimal(1) } | "Cartesian" |
+| Co(new Decimal(2).sqrt(), 1) | { re: Decimal(1.414213562373095048801...), im: Decimal(1) } | "CartesianSmall" |
+| Co(new Decimal(2).sqrt(), 1) | { r: Decimal(1.732050807568877293527...), phi: Decimal(0.61547970867038734106...) } | "PolarR" |
+| Co(new Decimal(2).sqrt(), 1) | { abs: Decimal(1.732050807568877293527...), arg: Decimal(0.61547970867038734106...) } | "PolarABS" |
+
+### toObjectNumber(tipo = "Cartesian")
+
+| Entrada | Saída | tipo |
+|---|---|---|
+| Co(new Decimal(2).sqrt(), 1) | { real: 1.4142135623730951, imag: 1 } | "Cartesian" |
+| Co(new Decimal(2).sqrt(), 1) | { re: 1.4142135623730951, im: 1 } | "CartesianSmall" |
+| Co(new Decimal(2).sqrt(), 1) | { r: 1.7320508075688772, phi: 0.6154797086703873 } | "PolarR" |
+| Co(new Decimal(2).sqrt(), 1) | { abs: 1.7320508075688772, arg: 0.6154797086703873 } | "PolarABS" |
+
+### toJSON(tipo = "Cartesian")
+
+| Entrada | Saída | tipo |
+|---|---|---|
+| Co(new Decimal(2).sqrt(), 1) | { real: "1.414213562373095048801...", imag: "1" } | "Cartesian" |
+| Co(new Decimal(2).sqrt(), 1) | { re: "1.414213562373095048801...", im: "1" } | "CartesianSmall" |
+| Co(new Decimal(2).sqrt(), 1) | { r: "1.732050807568877293527...", phi: "0.61547970867038734106..." } | "PolarR" |
+| Co(new Decimal(2).sqrt(), 1) | { abs: "1.732050807568877293527...", arg: "0.61547970867038734106..." } | "PolarABS" |
+
+### Notas
+
+- Os tipos de toObjectDecimal, toObjectNumber e toJSON são os mesmos que Co.parser aceita na entrada
+- Então:
+  Co.parser(z.toObjectDecimal("Cartesian")) // => z
+  Co.parser(z.toObjectDecimal("PolarR"))    // => z
+  Co.parser(JSON.parse(JSON.stringify(z)))  // => z
