@@ -14,9 +14,7 @@ class Co {
         if (imag === undefined) imag = gh(0)
         real = gh(real)
         imag = gh(imag)
-        //console.log(real, imag)
         if (real.isNaN() || imag.isNaN() || !isFinite(real) ||!isFinite(imag)) throw new Error(`Parte real ou imaginária como NaN ou não finita: (${real}, ${imag})`)
-        //console.log(real, imag)
         if (real.abs().lt(gh(10).pow(gh(p).neg()))) real = gh(0)
         if (imag.abs().lt(gh(10).pow(gh(p).neg()))) imag = gh(0)
         this.real = real
@@ -212,7 +210,6 @@ class Co {
         return ((this.mul(this)).add(Co["ONE"]).sqrt().add(this)).ln()
     }
     acosh() {
-        console.log(this.add(1).sqrt().mul(this.sub(1).sqrt()).add(this).ln())
         return (this.add(this.add(1).sqrt().mul(this.sub(1).sqrt()))).ln()
     }
     atanh() {
@@ -415,7 +412,6 @@ function C(a, b) {
 
         if (IMais === -1) {
             IMenos = a.lastIndexOf("-")
-            //console.log(IMenos)
             while (a[IMenos - 1] === "e") {
                 IMenos = a.slice(0, IMenos - 1).lastIndexOf("-")
             }
@@ -493,7 +489,3 @@ module.exports = {
 }
 
 //C -> parserC -> C (de novo)
-//new Co(-2).sub(1).sqrt().print()
-
-//let x = new Co(1)
-//console.log(new Co(gh(2).sqrt(), 1).toArrayNumber())
