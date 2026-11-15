@@ -186,7 +186,7 @@ class Co {
         return (this.real.isNaN() || this.imag.isNaN())
     }
     isFinite() {
-        return (isFinite(this.real) || isFinite(this.imag))
+        return (isFinite(this.real) && isFinite(this.imag))
     }
 
     asin() {
@@ -196,7 +196,7 @@ class Co {
         return (Co["PI"].div(2)).sub(this.asin())
     }
     atan() {
-        let raz = (Co["I"].add(this)).div(this.sub(Co["I"]))
+        let raz = (Co["I"].add(this)).div(Co["I"].sub(this))
         return ((raz.ln()).i()).div(new Co(2))
     }
     asec() {
@@ -251,8 +251,8 @@ class Co {
     }
 
     toString(tipo) {
-        if (tipo === undefined) tipo = "c"
-        if (tipo === "c") {
+        if (tipo === undefined) tipo = "Cartesian"
+        if (tipo === "Cartesian") {
             if (this.imag.isZero()) return `${this.real}`
             if (this.real.isZero() && this.imag.eq(1)) return `i`
             if (this.real.isZero() && this.imag.eq(-1)) return `-i`
@@ -262,7 +262,7 @@ class Co {
             if (this.imag.isNeg()) return `${this.real} - ${this.imag.abs()}i`
             return `${this.real} + ${this.imag}i`
         }
-        if (tipo === "p") {
+        if (tipo === "Euler") {
             let r = this.r()
             let arg = this.theta()
             if (arg.isZero()) return `${r.real}`
@@ -274,10 +274,15 @@ class Co {
             if (arg.eq(-1)) return `${r.real} * e ** (-i)`
             return `${r.real} * e ** (${arg.real}i)`
         }
-        if (tipo === "pa") {
+        if (tipo === "PolarSy") {
             let r = this.r()
             let arg = this.theta()
             return `${r.real} ∠ ${arg.real}`
+        }
+        if (tipo === "PolarChar") {
+            let r = this.r()
+            let arg = this.theta()
+            return `${r.real} r ${arg.real}`
         }
         throw new Error(`Tipo inválido: ${tipo}`)
     }
@@ -491,5 +496,4 @@ module.exports = {
 //new Co(-2).sub(1).sqrt().print()
 
 //let x = new Co(1)
-
-//x.i().exp().sub(x.i().neg().exp()).div(Co.parser("2i")).print()
+//console.log(new Co(gh(2).sqrt(), 1).toArrayNumber())
