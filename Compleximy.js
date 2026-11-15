@@ -15,8 +15,8 @@ class Co {
         real = gh(real)
         imag = gh(imag)
         if (real.isNaN() || imag.isNaN() || !isFinite(real) ||!isFinite(imag)) throw new Error(`Parte real ou imaginária como NaN ou não finita: (${real}, ${imag})`)
-        if (real.abs().lt(gh(10).pow(gh(p).neg()))) real = gh(0)
-        if (imag.abs().lt(gh(10).pow(gh(p).neg()))) imag = gh(0)
+        if (real.abs().lt(gh(10).pow(gh(gh.precision).neg()))) real = gh(0)
+        if (imag.abs().lt(gh(10).pow(gh(gh.precision).neg()))) imag = gh(0)
         this.real = real
         this.imag = imag
     }
@@ -29,6 +29,8 @@ class Co {
         if (theta === undefined) theta = gh(0)
         r = gh(r)
         theta = gh(theta)
+        if (r.abs().lt(gh(10).pow(gh(gh.precision).neg()))) r = gh(0)
+        if (theta.abs().lt(gh(10).pow(gh(gh.precision).neg()))) theta = gh(0)
 
         if (r.isNaN() || theta.isNaN() || !isFinite(r) || !isFinite(theta)) throw new Error(`Raio ou ângulo como NaN ou não finito: (${r}, ${theta})`)
         if (r.lt(0)) throw new Error("R menor que 0 não é válido")
@@ -412,6 +414,7 @@ function C(a, b) {
 
         if (IMais === -1) {
             IMenos = a.lastIndexOf("-")
+            //console.log(IMenos)
             while (a[IMenos - 1] === "e") {
                 IMenos = a.slice(0, IMenos - 1).lastIndexOf("-")
             }
@@ -487,5 +490,3 @@ function isFinite(a) {
 module.exports = {
     Co
 }
-
-//C -> parserC -> C (de novo)
