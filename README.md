@@ -6,7 +6,7 @@ Ex: para p = 100, 1e-101 é considerado 0
 O construtor do Co aceita Co(1) e Co(1, 0)
 
 ## Instalação:
-`npm i compleximy`
+###`npm i compleximy`
 
 
 ### Operadores
