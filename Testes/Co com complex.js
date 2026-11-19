@@ -298,3 +298,5 @@ test("pow i", () => {
         complexNear(new Co(0, 1).pow(a), new Complex(0, 1).pow(a).re, new Complex(0, 1).pow(a).im)
     }
 })
+
+//O pior é que tem 42 testes mesmo
