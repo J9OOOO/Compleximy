@@ -1,12 +1,12 @@
 # Compleximy
 Uma biblioteca de números complexos com precisão arbitrária que eu criei há 39 dias atrás (na data de hoje 14/11/2026)
 Todos os ramos escolhidos são o principal (k = 0)
-O truncamento é para qualquer número menor que a precisão 'p'
-Ex: para p = 100, 1e-101 é considerado 0
-O construtor do Co aceita Co(1) e Co(1, 0)
+O truncamento é para qualquer número menor que a precisão 'p' menos 5
+Ex: para p = 100, 1e-95 é considerado 0
+O construtor do Co aceita Co(1) e Co(1, 0), omitir o segundo argumento é permitido
 
 ## Instalação:
-### `npm i compleximy`
+### npm i compleximy
 
 
 ### Operadores
@@ -63,20 +63,21 @@ O construtor do Co aceita Co(1) e Co(1, 0)
 | z é real | z.isReal() |
 | z é imaginário puro | z.isImag() |
 | z é finito | z.isFinite() |
-| z é NaN | z.isNaN() |
 | z / abs(z) | z.norm() |
 | distance(z, w) | z.distance(w) |
 | z(exp(itheta)) | z.rotation(theta) |
 | z === w | z.eq(w) |
 | z !== w | z.noeq(w) |
 | (a, b) -> a+bi | Co(a, b) |
-| (r, phi) -> r * e ** (iphi) | Co.Polar(r, phi) |
+| (r, phi) -> r * e ** (iphi) | Co("RrPHI") |
 | Co -> string | z.toString(tipo) |
 | Co -> Array em Decimal | z.toArrayDecimal() |
 | Co -> Array em Number | z.toArrayNumber() |
 | Co -> Objeto em Decimal| z.toObjectDecimal(tipo)  |
 | Co -> Objeto em Number| z.toObjectNumber(tipo)  |
 | Co -> JSON| z.toJSON(tipo) |
+| parte real de z | z[0] |
+| parte imaginária de z | z[1] |
 
 ### Constantes:
 | Nome | Representação matemática |
@@ -100,7 +101,7 @@ O construtor do Co aceita Co(1) e Co(1, 0)
 | MINUS_ONE | -1 |
 | ZERO | 0 |
 
-## Co.parser
+## Co
 Aceita:
 |---|
   |Número: (-1, 3, -7812, 1.94, "34", "8230134", "-98143", ...)|
@@ -115,17 +116,16 @@ Aceita:
 |"1+i" | Co(1, 1) |
 |"113+14i" | Co(113, 14) |
 |1 | Co(1, 0) |
-|[1, 1 | Co(1, 1) |
 |[1, 1] | Co(1, 1) |
+|[1, 2] | Co(1, 2) |
 |{real: 1, imag: 2} | Co(1, 2) |
 | (1, 3) | Co(1, 3) |
 |"3i" | Co(0, 3) |
 | 1e-1+1e-1i | Co(1e-1, 1e-1) |
 | "1+2I" | Co(1, 2) |
-| "1r3" | Co.Polar(1, 3) |
-| "1∠3" | Co.Polar(1, 3) |
-| "PI+Ei" | Co(PI, E) |
-| "PIrE" | Co.Polar(PI, E) |
+| "1r3" | Co(...Convertido em polar, ...) |
+| "1∠3" | Co(...Convertido em polar, ...) |
+|"1+Ei" | Co(1, E) |
 | Outro Co | Cópia dele |
 
 #### Exemplos de falha
@@ -139,7 +139,6 @@ Aceita:
 |{a: 1, b: 2} |
 | null | 
 | undefined |
-| 1e-1+1e-1i | 
 | [] | 
 
 
@@ -149,12 +148,12 @@ Aceita:
 
 | Entrada | Saída | tipo |
 |---|---|---|
-| Co(1, 1) | "1 + i" | "c" (Cartesian) |
+| Co(1, 1) | "1 + i" | "Cartesian" |
 | Co(1, 1) | "1.4142135623730... * e ** (0.785398163397...i)" | Euler |
 | Co(1, 1) | "1.4142135623730... ∠ 0.785398163397..." | PolarSy |
 | Co(1, 1) | "1.4142135623730... r 0.785398163397..." | PolarChar |
 
-> "p" é apenas para exibição — **não** é parseável por Co.parser, somente Cartesian, PolarSy e PolarChar
+> "Euler" é apenas para exibição — **não** é parseável por Co, somente Cartesian, PolarSy e PolarChar
 
 ### toArrayDecimal()
 
@@ -197,8 +196,16 @@ Aceita:
 
 ### Notas
 
-- Os tipos de toObjectDecimal, toObjectNumber e toJSON são os mesmos que Co.parser aceita na entrada
+- Os tipos de toObjectDecimal, toObjectNumber e toJSON são os mesmos que Co aceita na entrada
 - Então:
-  Co.parser(z.toObjectDecimal("Cartesian")) // => z
-  Co.parser(z.toObjectDecimal("PolarR"))    // => z
-  Co.parser(JSON.parse(JSON.stringify(z)))  // => z
+-  Co(z.toObjectDecimal("Cartesian")) // => z
+-  Co(z.toObjectDecimal("PolarR"))    // => z
+-  Co(JSON.parse(JSON.stringify(z)))  // => z
+
+###Obs:
+- Eu felizmente excluí o estático Co.polar, ele não merecia sequer existir (sim)
+- Agora a classe é por Array, não objetos
+- Co é só um wrapper
+- tests 42 e pass 42, passou em todos os testes
+- Eu realmente reescrevi tudo, mas externamente mudou nada Co nem é construtor mais, Co.i que é
+- Reescrevi todas as operações também, agora não é mais tudo encadeado (a maioria que é pesada ao menos)
