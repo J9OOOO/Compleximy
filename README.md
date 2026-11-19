@@ -1,5 +1,5 @@
 # Compleximy
-Uma biblioteca de números complexos com precisão arbitrária que eu criei há 39 dias atrás (na data de hoje 14/11/2026)
+Uma biblioteca de números complexos com precisão arbitrária que eu criei há 44 dias atrás (na data de hoje 19/11/2026)
 Todos os ramos escolhidos são o principal (k = 0)
 O truncamento é para qualquer número menor que a precisão 'p' menos 5
 Ex: para p = 100, 1e-95 é considerado 0
