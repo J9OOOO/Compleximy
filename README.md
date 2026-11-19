@@ -203,11 +203,13 @@ Aceita:
 -  Co(JSON.parse(JSON.stringify(z)))  // => z
 
 # Exemplos de uso:
-`new Co("1+i").add(1, 1) //(1+i)+1+i)
-new Co(1, 1).pow2().pow(4).sqrt() // sqrt((1+i)^2)^4)
-Co.PI.i().exp().add(1) // e^ipi+1
-Co.E.add(Co.PI) // E+PI
-`
+- `new Co("1+i").add(1, 1) //(1+i)+1+i)`
+- 
+- `new Co(1, 1).pow2().pow(4).sqrt() // sqrt((1+i)^2)^4)`
+- 
+- `Co.PI.i().exp().add(1) // e^ipi+1`
+- 
+- `Co.E.add(Co.PI) // E+PI`
 
 ### Obs:
 - Eu felizmente excluí o estático Co.polar, ele não merecia sequer existir (sim)
