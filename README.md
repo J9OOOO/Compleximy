@@ -203,7 +203,7 @@ Aceita:
 -  Co(JSON.parse(JSON.stringify(z)))  // => z
 
 # Exemplos de uso:
-- `new Co("1+i").add(1, 1) //(1+i)+1+i)`
+- `new Co("1+i").add(1, 1) //(1+i)+(1+i)`
 - 
 - `new Co(1, 1).pow2().pow(4).sqrt() // sqrt((1+i)^2)^4)`
 - 
