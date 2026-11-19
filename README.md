@@ -202,10 +202,11 @@ Aceita:
 -  Co(z.toObjectDecimal("PolarR"))    // => z
 -  Co(JSON.parse(JSON.stringify(z)))  // => z
 
-###Obs:
+### Obs:
 - Eu felizmente excluí o estático Co.polar, ele não merecia sequer existir (sim)
 - Agora a classe é por Array, não objetos
 - Co é só um wrapper
 - tests 42 e pass 42, passou em todos os testes
 - Eu realmente reescrevi tudo, mas externamente mudou nada Co nem é construtor mais, Co.i que é
 - Reescrevi todas as operações também, agora não é mais tudo encadeado (a maioria que é pesada ao menos)
+- Provavelmente amanhã vai ter novas coisas
