@@ -1,7 +1,5 @@
 const gh = require("decimal.js")
 
-gh.set({precision: 100})
-
 class Co {
     constructor(real, imag) {
         return Co.i(C(real, imag))
@@ -223,6 +221,12 @@ class Co {
         }
         throw new Error(`Tipo inválido: ${tipo}`)
     }
+    GetReal() {
+        return this[0]
+    }
+    GetImag() {
+        return this[1]
+    }
     toArrayDecimal() {
         return [this[0], this[1]]
     }
@@ -438,7 +442,7 @@ function truncamento(a) {
         }
     }
     const exp = Number(a1.slice(e + 1, a1.length))
-    if (exp < - p + 2) return ZERO
+    if (exp < - p + 5) return ZERO
     return a
 }
 
