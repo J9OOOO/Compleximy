@@ -76,8 +76,8 @@ O construtor do Co aceita Co(1) e Co(1, 0), omitir o segundo argumento é permit
 | Co -> Objeto em Decimal| z.toObjectDecimal(tipo)  |
 | Co -> Objeto em Number| z.toObjectNumber(tipo)  |
 | Co -> JSON| z.toJSON(tipo) |
-| parte real de z | z[0] |
-| parte imaginária de z | z[1] |
+| parte real de z | z.real ou Z.GetReal()|
+| parte imaginária de z | z.imag ou z.GetImag()|
 
 ### Constantes:
 | Nome | Representação matemática |
